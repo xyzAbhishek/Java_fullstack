@@ -30,9 +30,19 @@ System.err.println();
 
    int result =   l1.stream()
         .filter(n -> n%2==0) //creates a new stream
-        .map(n -> n+1) // creates a new stream
+        .map(n -> n+1) // does not creates a new stream
         .reduce(0,(c,e) -> c+e);
 
+/*
+ntermediate operations (like .map(), .filter(), .distinct()) 
+take a stream, process the elements, and return a new Stream. 
+Because they return a stream, you can chain them together.
+
+Terminal operations (like .reduce(), .collect(), .forEach(), .count()) 
+consume the stream, trigger the actual execution of the pipeline, and 
+return a non-stream result (a collection, a boolean, a void, or a single reduced value).
+
+*/ 
     System.err.println(result);
 
     
